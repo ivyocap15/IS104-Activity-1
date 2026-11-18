@@ -3,113 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Enrollment Form | Ivy Ocap</title>
+  <meta name="description" content="Campus student enrollment portal">
+  <title>Campus | Student Enrollment Portal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand-mark">SE</div>
-    <div>
-      <h1>Student Enrollment</h1>
-      <p>Student Information System</p>
-    </div>
-  </header>
-
-  <main class="page">
-    <section class="intro">
-      <p class="eyebrow">BSIS 2A • IS104 ACTIVITY 1</p>
-      <h2>Enrollment Form</h2>
-      <p class="description">Please complete the form below with the student's information.</p>
-    </section>
-
-    <section class="card">
-      <div class="card-heading">
-        <div>
-          <h3>Student Information</h3>
-          <p>Fields marked with <span class="required">*</span> are required.</p>
-        </div>
-        <span class="step">STEP 01</span>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <h2>CAMPUS</h2>
+        <span>ENROLLMENT PORTAL</span>
       </div>
+      <nav class="nav-menu" aria-label="Main navigation">
+        <button class="nav-link" data-page="dashboard">Dashboard</button>
+        <button class="nav-link active" data-page="enrollment">Enrollment</button>
+        <button class="nav-link" data-page="students">Students</button>
+        <button class="nav-link" data-page="reports">Reports</button>
+        <button class="nav-link" data-page="settings">Settings</button>
+      </nav>
+      <div class="academic-year">Academic Year 2026–2027</div>
+    </aside>
 
-      <form id="enrollmentForm">
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="studentId">Student ID <span class="required">*</span></label>
-            <input id="studentId" name="studentId" type="text" placeholder="e.g. 2026-0001" required>
+    <main class="main-area">
+      <header class="topbar">
+        <div class="page-heading">
+          <h1 id="page-title">Student Enrollment</h1>
+          <p id="page-subtitle">Complete the form below to register a student.</p>
+        </div>
+        <div class="admin">
+          <div><strong>Administrator</strong><span>Registrar Office</span></div>
+          <div class="avatar">JD</div>
+        </div>
+      </header>
+
+      <section id="page-enrollment" class="page active">
+        <div class="panel enrollment-panel">
+          <div class="panel-heading">
+            <h2>New student registration</h2>
+            <p id="form-notice">Fields marked with <b>*</b> are required.</p>
           </div>
+          <form id="enrollment-form" novalidate>
+            <div class="form-grid">
+              <div class="field" id="field-studentId">
+                <label for="studentId">Student ID <b>*</b></label>
+                <input id="studentId" name="studentId" type="text" placeholder="Enter student ID" required>
+                <small class="error"></small>
+              </div>
+              <div class="field" id="field-fullName">
+                <label for="fullName">Full name <b>*</b></label>
+                <input id="fullName" name="fullName" type="text" placeholder="Enter full name" required>
+                <small class="error"></small>
+              </div>
+              <div class="field" id="field-email">
+                <label for="email">Email address <b>*</b></label>
+                <input id="email" name="email" type="email" placeholder="name@example.com" required>
+                <small class="error"></small>
+              </div>
+              <div class="field" id="field-age">
+                <label for="age">Age <b>*</b></label>
+                <input id="age" name="age" type="number" min="18" placeholder="Enter age" required>
+                <small class="error"></small>
+              </div>
+              <div class="field" id="field-course">
+                <label for="course">Course <b>*</b></label>
+                <select id="course" name="course" required>
+                  <option value="">Select course</option>
+                  <option value="BS Information Systems">BS Information Systems</option>
+                  <option value="BS Information Technology">BS Information Technology</option>
+                </select>
+                <small class="error"></small>
+              </div>
+              <div class="field" id="field-year">
+                <label for="year">Year level <b>*</b></label>
+                <select id="year" name="year" required>
+                  <option value="">Select year level</option>
+                  <option value="1st">1st Year</option>
+                  <option value="2nd">2nd Year</option>
+                  <option value="3rd">3rd Year</option>
+                  <option value="4th">4th Year</option>
+                </select>
+                <small class="error"></small>
+              </div>
+            </div>
+            <p class="form-help">Please review the information before submitting.</p>
+            <div class="form-actions">
+              <button class="button button-light" type="reset">Clear form</button>
+              <button class="button button-primary" type="submit">Submit enrollment</button>
+            </div>
+          </form>
+        </div>
+      </section>
 
-          <div class="form-group">
-            <label for="fullName">Full Name <span class="required">*</span></label>
-            <input id="fullName" name="fullName" type="text" placeholder="Enter full name" required>
+      <section id="page-students" class="page">
+        <div class="panel records-panel">
+          <div class="panel-heading">
+            <h2>Enrolled students</h2>
+            <p>A list of students registered for Academic Year 2026–2027.</p>
           </div>
-
-          <div class="form-group">
-            <label for="email">Email Address <span class="required">*</span></label>
-            <input id="email" name="email" type="email" placeholder="name@example.com" required>
+          <div class="table-toolbar">
+            <input id="student-search" class="search-input" type="search" placeholder="Search by student ID or name..." aria-label="Search students">
+            <button class="button button-primary" id="add-student">+ Add student</button>
           </div>
-
-          <div class="form-group">
-            <label for="age">Age <span class="required">*</span></label>
-            <input id="age" name="age" type="number" min="1" max="100" placeholder="Enter age" required>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>STUDENT ID</th><th>FULL NAME</th><th>EMAIL</th><th>COURSE</th><th>YEAR</th><th>STATUS</th></tr></thead>
+              <tbody id="student-table-body"></tbody>
+            </table>
           </div>
-
-          <div class="form-group">
-            <label for="course">Course <span class="required">*</span></label>
-            <select id="course" name="course" required>
-              <option value="">Select course</option>
-              <option>BS Information Systems</option>
-              <option>BS Information Technology</option>
-              <option>BS Computer Science</option>
-              <option>BS Computer Engineering</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="yearLevel">Year Level <span class="required">*</span></label>
-            <select id="yearLevel" name="yearLevel" required>
-              <option value="">Select year level</option>
-              <option>1st Year</option>
-              <option>2nd Year</option>
-              <option>3rd Year</option>
-              <option>4th Year</option>
-            </select>
+          <div class="table-footer">
+            <span id="table-count">Showing 0 students</span>
+            <div class="pagination" id="pagination"></div>
           </div>
         </div>
+      </section>
 
-        <div class="actions">
-          <button class="submit-btn" type="submit">Submit Enrollment</button>
-          <button class="clear-btn" type="reset">Clear Form</button>
+      <section id="page-reports" class="page">
+        <div class="panel reports-panel">
+          <div class="panel-heading">
+            <h2>Enrollment overview</h2>
+            <p>Quick snapshot of current registration records.</p>
+          </div>
+          <div class="stats-grid">
+            <article class="stat-card"><span>TOTAL STUDENTS</span><strong id="total-count">0</strong><small>All registered students</small></article>
+            <article class="stat-card"><span>ENROLLED</span><strong class="green" id="enrolled-count">0</strong><small id="enrolled-percent">0% of total</small></article>
+            <article class="stat-card"><span>PENDING</span><strong class="orange" id="pending-count">0</strong><small>Needs review</small></article>
+          </div>
+          <div class="report-grid">
+            <div>
+              <h3>Students by year level</h3>
+              <div id="year-chart" class="bar-list"></div>
+            </div>
+            <div>
+              <h3>Enrollment by course</h3>
+              <div id="course-chart" class="course-list"></div>
+            </div>
+          </div>
+          <div class="report-footer">
+            <span id="report-date">Report generated: —</span>
+            <button class="button button-primary" id="export-report">Export report</button>
+          </div>
         </div>
-        <p id="formMessage" class="form-message" role="status"></p>
-      </form>
-    </section>
+      </section>
 
-    <footer>
-      <p>Designed and prepared by <strong>IVY OCAP</strong></p>
-      <p>IS104 • BSIS 2A</p>
-    </footer>
-  </main>
+      <section id="page-dashboard" class="page">
+        <div class="panel simple-panel">
+          <div class="panel-heading"><h2>Dashboard</h2><p>Welcome to the Campus Enrollment Portal.</p></div>
+          <div class="dashboard-cards">
+            <button class="dashboard-card" data-go="enrollment"><span>Register a student</span><b>Open enrollment →</b></button>
+            <button class="dashboard-card" data-go="students"><span>Student records</span><b>View students →</b></button>
+            <button class="dashboard-card" data-go="reports"><span>Enrollment reports</span><b>View summary →</b></button>
+          </div>
+        </div>
+      </section>
 
-  <script>
-    const form = document.getElementById("enrollmentForm");
-    const message = document.getElementById("formMessage");
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      message.textContent = "Enrollment form submitted successfully!";
-      message.classList.add("success");
-    });
-
-    form.addEventListener("reset", function () {
-      message.textContent = "";
-      message.classList.remove("success");
-    });
-  </script>
+      <section id="page-settings" class="page">
+        <div class="panel simple-panel">
+          <div class="panel-heading"><h2>Settings</h2><p>Portal information and academic year.</p></div>
+          <div class="settings-content">
+            <label>Portal name<input type="text" value="CAMPUS" readonly></label>
+            <label>Academic year<input type="text" value="2026–2027" readonly></label>
+            <p class="settings-note">This is a front-end demonstration. Student records are saved in this browser using local storage.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
 </body>
 </html>
