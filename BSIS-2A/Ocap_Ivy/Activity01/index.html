@@ -2,41 +2,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Campus student enrollment portal">
+    <meta name="description" content="Campus Student Enrollment Portal">
     <title>Campus | Student Enrollment Portal</title>
     <link rel="stylesheet" href="style.css">
-</head><body><div class="app-shell"><!-- SIDEBAR -->
-<aside class="sidebar">
-
+</head>
+<body><div class="app-shell"><aside class="sidebar">
     <div class="brand">
         <h2>CAMPUS</h2>
         <span>ENROLLMENT PORTAL</span>
     </div>
 
-    <nav class="nav-menu" aria-label="Main navigation">
-        <a class="nav-link" href="#page-dashboard">Dashboard</a>
-        <a class="nav-link active" href="#page-enrollment">Enrollment</a>
-        <a class="nav-link" href="#page-students">Students</a>
-        <a class="nav-link" href="#page-reports">Reports</a>
-        <a class="nav-link" href="#page-settings">Settings</a>
+    <nav class="nav-menu">
+        <a href="#dashboard" class="nav-link">Dashboard</a>
+        <a href="#enrollment" class="nav-link">Enrollment</a>
+        <a href="#students" class="nav-link">Students</a>
+        <a href="#reports" class="nav-link">Reports</a>
+        <a href="#settings" class="nav-link">Settings</a>
     </nav>
 
     <div class="academic-year">
         Academic Year 2026–2027
     </div>
-
 </aside>
 
-
-<!-- MAIN CONTENT -->
 <main class="main-area">
 
-    <!-- HEADER -->
     <header class="topbar">
-
-        <div class="page-heading">
-            <h1>Student Enrollment Portal</h1>
-            <p>Manage student enrollment information.</p>
+        <div>
+            <h1>Student Enrollment</h1>
+            <p>Welcome to the Campus Enrollment Portal.</p>
         </div>
 
         <div class="admin">
@@ -44,18 +38,38 @@
                 <strong>Administrator</strong>
                 <span>Registrar Office</span>
             </div>
-
             <div class="avatar">JD</div>
         </div>
-
     </header>
 
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="page">
+        <div class="panel">
+            <h2>Dashboard</h2>
+            <p class="muted">Welcome to your student enrollment dashboard.</p>
 
-    <!-- ENROLLMENT SECTION -->
-    <section id="page-enrollment" class="page">
+            <div class="dashboard-cards">
+                <a href="#enrollment" class="dashboard-card">
+                    <h3>Student Registration</h3>
+                    <p>Register a new student.</p>
+                </a>
 
-        <div class="panel enrollment-panel">
+                <a href="#students" class="dashboard-card">
+                    <h3>Student Records</h3>
+                    <p>View student information.</p>
+                </a>
 
+                <a href="#reports" class="dashboard-card">
+                    <h3>Enrollment Reports</h3>
+                    <p>View enrollment summaries.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENROLLMENT -->
+    <section id="enrollment" class="page">
+        <div class="panel">
             <div class="panel-heading">
                 <h2>New Student Registration</h2>
                 <p>Fields marked with <b>*</b> are required.</p>
@@ -67,68 +81,50 @@
 
                     <div class="field">
                         <label for="studentId">Student ID <b>*</b></label>
-                        <input
-                            type="text"
-                            id="studentId"
-                            name="studentId"
-                            placeholder="Enter student ID"
-                            required>
+                        <input type="text" id="studentId"
+                               name="studentId"
+                               placeholder="Enter student ID" required>
                     </div>
 
                     <div class="field">
                         <label for="fullName">Full Name <b>*</b></label>
-                        <input
-                            type="text"
-                            id="fullName"
-                            name="fullName"
-                            placeholder="Enter full name"
-                            required>
+                        <input type="text" id="fullName"
+                               name="fullName"
+                               placeholder="Enter full name" required>
                     </div>
 
                     <div class="field">
                         <label for="email">Email Address <b>*</b></label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="name@example.com"
-                            required>
+                        <input type="email" id="email"
+                               name="email"
+                               placeholder="name@example.com" required>
                     </div>
 
                     <div class="field">
                         <label for="age">Age <b>*</b></label>
-                        <input
-                            type="number"
-                            id="age"
-                            name="age"
-                            min="18"
-                            placeholder="Enter age"
-                            required>
+                        <input type="number" id="age"
+                               name="age"
+                               min="18"
+                               placeholder="Enter age" required>
                     </div>
 
                     <div class="field">
                         <label for="course">Course <b>*</b></label>
-
                         <select id="course" name="course" required>
                             <option value="">Select course</option>
-                            <option value="BS Information Systems">
-                                BS Information Systems
-                            </option>
-                            <option value="BS Information Technology">
-                                BS Information Technology
-                            </option>
+                            <option>BS Information Systems</option>
+                            <option>BS Information Technology</option>
                         </select>
                     </div>
 
                     <div class="field">
                         <label for="year">Year Level <b>*</b></label>
-
                         <select id="year" name="year" required>
                             <option value="">Select year level</option>
-                            <option value="1st Year">1st Year</option>
-                            <option value="2nd Year">2nd Year</option>
-                            <option value="3rd Year">3rd Year</option>
-                            <option value="4th Year">4th Year</option>
+                            <option>1st Year</option>
+                            <option>2nd Year</option>
+                            <option>3rd Year</option>
+                            <option>4th Year</option>
                         </select>
                     </div>
 
@@ -139,38 +135,29 @@
                 </p>
 
                 <div class="form-actions">
-                    <button class="button button-light" type="reset">
+                    <button type="reset" class="button button-light">
                         Clear Form
                     </button>
 
-                    <button class="button button-primary" type="submit">
+                    <button type="submit" class="button button-primary">
                         Submit Enrollment
                     </button>
                 </div>
 
             </form>
-
         </div>
-
     </section>
 
-
-    <!-- STUDENTS SECTION -->
-    <section id="page-students" class="page">
-
-        <div class="panel records-panel">
-
+    <!-- STUDENTS -->
+    <section id="students" class="page">
+        <div class="panel">
             <div class="panel-heading">
                 <h2>Enrolled Students</h2>
-                <p>
-                    Sample student records for Academic Year 2026–2027.
-                </p>
+                <p>Sample student records for Academic Year 2026–2027.</p>
             </div>
 
             <div class="table-wrap">
-
                 <table>
-
                     <thead>
                         <tr>
                             <th>STUDENT ID</th>
@@ -183,13 +170,12 @@
                     </thead>
 
                     <tbody>
-
                         <tr>
                             <td>2026-001</td>
                             <td>Juan Dela Cruz</td>
                             <td>juan@email.com</td>
                             <td>BSIS</td>
-                            <td>1st Year</td>
+                            <td>1st</td>
                             <td><span class="status enrolled">Enrolled</span></td>
                         </tr>
 
@@ -198,7 +184,7 @@
                             <td>Maria Santos</td>
                             <td>maria@email.com</td>
                             <td>BSIT</td>
-                            <td>2nd Year</td>
+                            <td>2nd</td>
                             <td><span class="status enrolled">Enrolled</span></td>
                         </tr>
 
@@ -207,164 +193,128 @@
                             <td>Pedro Reyes</td>
                             <td>pedro@email.com</td>
                             <td>BSIS</td>
-                            <td>3rd Year</td>
+                            <td>1st</td>
                             <td><span class="status pending">Pending</span></td>
                         </tr>
-
                     </tbody>
-
                 </table>
-
             </div>
 
-            <div class="table-footer">
-                <span>Showing 3 sample students</span>
-            </div>
-
+            <p class="muted table-note">Showing 3 sample students.</p>
         </div>
-
     </section>
 
-
-    <!-- REPORTS SECTION -->
-    <section id="page-reports" class="page">
-
-        <div class="panel reports-panel">
-
+    <!-- REPORTS -->
+    <section id="reports" class="page">
+        <div class="panel">
             <div class="panel-heading">
                 <h2>Enrollment Overview</h2>
-                <p>Summary of sample student registration records.</p>
+                <p>Quick snapshot of sample registration records.</p>
             </div>
 
             <div class="stats-grid">
-
-                <article class="stat-card">
+                <div class="stat-card">
                     <span>TOTAL STUDENTS</span>
-                    <strong>3</strong>
-                    <small>All sample records</small>
-                </article>
+                    <strong>128</strong>
+                    <small>All registered students</small>
+                </div>
 
-                <article class="stat-card">
+                <div class="stat-card">
                     <span>ENROLLED</span>
-                    <strong class="green">2</strong>
-                    <small>67% of total</small>
-                </article>
+                    <strong class="green">112</strong>
+                    <small>87.5% of total</small>
+                </div>
 
-                <article class="stat-card">
+                <div class="stat-card">
                     <span>PENDING</span>
-                    <strong class="orange">1</strong>
+                    <strong class="orange">16</strong>
                     <small>Needs review</small>
-                </article>
-
+                </div>
             </div>
 
             <div class="report-grid">
-
                 <div>
                     <h3>Students by Year Level</h3>
 
-                    <ul class="report-list">
-                        <li>1st Year — 1 student</li>
-                        <li>2nd Year — 1 student</li>
-                        <li>3rd Year — 1 student</li>
-                        <li>4th Year — 0 students</li>
-                    </ul>
+                    <div class="bar-row">
+                        <span>1st Year</span>
+                        <div class="bar"><i style="width:100%"></i></div>
+                        <b>42</b>
+                    </div>
+
+                    <div class="bar-row">
+                        <span>2nd Year</span>
+                        <div class="bar"><i style="width:85%"></i></div>
+                        <b>36</b>
+                    </div>
+
+                    <div class="bar-row">
+                        <span>3rd Year</span>
+                        <div class="bar"><i style="width:71%"></i></div>
+                        <b>30</b>
+                    </div>
+
+                    <div class="bar-row">
+                        <span>4th Year</span>
+                        <div class="bar"><i style="width:48%"></i></div>
+                        <b>20</b>
+                    </div>
                 </div>
 
                 <div>
                     <h3>Enrollment by Course</h3>
 
-                    <ul class="report-list">
-                        <li>BS Information Systems — 2</li>
-                        <li>BS Information Technology — 1</li>
-                    </ul>
+                    <div class="course-item">
+                        <span>BS Information Systems</span>
+                        <strong>76</strong>
+                    </div>
+
+                    <div class="course-item">
+                        <span>BS Information Technology</span>
+                        <strong>52</strong>
+                    </div>
                 </div>
-
             </div>
-
-            <div class="report-footer">
-                <span>Academic Year: 2026–2027</span>
-            </div>
-
         </div>
-
     </section>
 
-
-    <!-- DASHBOARD SECTION -->
-    <section id="page-dashboard" class="page">
-
-        <div class="panel simple-panel">
-
-            <div class="panel-heading">
-                <h2>Dashboard</h2>
-                <p>Welcome to the Campus Enrollment Portal.</p>
-            </div>
-
-            <div class="dashboard-cards">
-
-                <a class="dashboard-card" href="#page-enrollment">
-                    <span>Register a Student</span>
-                    <b>Open Enrollment →</b>
-                </a>
-
-                <a class="dashboard-card" href="#page-students">
-                    <span>Student Records</span>
-                    <b>View Students →</b>
-                </a>
-
-                <a class="dashboard-card" href="#page-reports">
-                    <span>Enrollment Reports</span>
-                    <b>View Summary →</b>
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SETTINGS SECTION -->
-    <section id="page-settings" class="page">
-
-        <div class="panel simple-panel">
-
+    <!-- SETTINGS -->
+    <section id="settings" class="page">
+        <div class="panel">
             <div class="panel-heading">
                 <h2>Settings</h2>
                 <p>Portal information and academic year.</p>
             </div>
 
             <div class="settings-content">
+                <label for="portal">Portal Name</label>
+                <input id="portal" type="text" value="CAMPUS" readonly>
 
-                <label>
-                    Portal Name
-                    <input type="text" value="CAMPUS" readonly>
-                </label>
+                <label for="academic">Academic Year</label>
+                <input id="academic" type="text"
+                       value="2026–2027" readonly>
 
-                <label>
-                    Academic Year
-                    <input type="text" value="2026–2027" readonly>
-                </label>
-
-                <p class="settings-note">
-                    This portal is an HTML and CSS front-end demonstration.
-                    Student records displayed are sample data.
+                <p class="muted">
+                    Campus Student Enrollment Portal.
+                    HTML and CSS demonstration.
                 </p>
-
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p>© 2026 CAMPUS Student Enrollment Portal. All Rights Reserved.</p>
+    <footer>
+        <span>Campus Student Enrollment Portal</span>
+        <strong>Academic Year 2026–2027</strong>
     </footer>
 
 </main>
 
 </div></body>
 </html>
+                            
+
+                
+
+            
+
+        
